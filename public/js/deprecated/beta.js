@@ -1,11 +1,11 @@
 // once these features are live, they come out of the jsbin beta box
-(function () {  
+(function () {
   var $body = $('body'),
       $document = $(document),
       forbindDFD = $.Deferred(),
       forbindPromise = forbindDFD.promise();
-  
-  //= require "stream"  
+
+  //= require "stream"
 
   this.home = function (name, key) {
     if (!key) {
@@ -38,19 +38,19 @@
     });
     return '...';
   };
-  
+
   this.nojumpkeys = function () {
-    
+
   };
 
   this.enableAPI = function () {
     navigator.registerProtocolHandler('web+jsbin', jsbin.root + '?api=%s', 'JS Bin API');
   };
-  
+
   // popout live remoting
   this.popout = function () {
     var last = {};
-    
+
     forbindPromise.done(function () {
       var key = sessionStorage.remotekey || (Math.abs(~~(Math.random()*+new Date))).toString(32);
       // sessionStorage.remotekey = key;
@@ -58,7 +58,7 @@
       function changes(lang, code) {
         var msg = {},
             diff,
-            patch, 
+            patch,
             result;
 
         if (last[lang] === undefined) {
@@ -107,27 +107,27 @@
           msg.ch = cursor.ch;
 
           forbind.send(msg);
-        } 
+        }
       }
     }).fail(function () {
       console.log('Förbind is not available, therefore we can\'t start the popout. Sorry :(');
     });
   };
-  
+
   this.diff = function (revision) {
     var url = window.location.pathname;
     url = url.split('/');
-    
+
     var thisRev = url.pop();
     if (thisRev == 'edit') thisRev = url.pop(); // should always happen
-    
+
     if (!revision) {
       revision = thisRev;
       revision--;
     } else {
       revision *= 1;
     }
-    
+
     if (!isNaN(revision) && revision > 0) {
       $.ajax({
         url: url.join('/') + '/' + revision + '/source',
@@ -136,7 +136,7 @@
           var diff = new diff_match_patch(),
               patch = diff.patch_make(data.javascript, editors.javascript.getCode()),
               patchText = diff.patch_toText(patch);
-          
+
           if (patchText) {
             console.log('--- javascript diff ---');
             console.log(decodeURIComponent(patchText));
@@ -145,7 +145,7 @@
           diff = new diff_match_patch();
           patch = diff.patch_make(data.html, editors.html.getCode());
           patchText = diff.patch_toText(patch);
-          
+
           if (patchText) {
             console.log('--- html diff ---');
             console.log(decodeURIComponent(patchText));
@@ -156,13 +156,13 @@
       console.log('requires a revision number to test against');
     }
   };
-  
+
   this.on = function () {
     localStorage.setItem('beta', 'true');
     $body.addClass('beta');
     this.popout();
   };
-  
+
   this.off = function () {
     localStorage.removeItem('beta');
     $body.removeClass('beta');
@@ -170,7 +170,7 @@
 
   this.active = localStorage.getItem('beta') == 'true' || false;
   if (this.active) this.on();
-  
+
   // lazy cookie parsing.
   try {
     jsbin.settings.home = document.cookie.split('home=')[1].split(';')[0];

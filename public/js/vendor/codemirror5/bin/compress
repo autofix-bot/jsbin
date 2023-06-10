@@ -72,7 +72,7 @@ if (files.length) {
               files.map(function(a){return a.name;}).join(", "));
   process.exit(1);
 }
-  
+
 if (local) {
   require("child_process").spawn(local, args.concat(extraArgs), {stdio: ["ignore", process.stdout, process.stderr]});
 } else {

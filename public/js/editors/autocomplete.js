@@ -29,7 +29,7 @@ function startTagComplete(editor) {
     token = tprop = {start: cur.ch, end: cur.ch, string: "", state: token.state,
                      className: token.string == "." ? "js-property" : null};
   }
-  
+
   // If it is a property, find out what it is a property of.
   while (tprop.className == "js-property") {
     tprop = editor.getTokenAt({line: cur.line, ch: tprop.start});
@@ -38,11 +38,11 @@ function startTagComplete(editor) {
     if (!context) var context = [];
     context.push(tprop);
   }
-  
+
   function insert(str) {
     editor.replaceRange(str, {line: cur.line, ch: token.start}, {line: cur.line, ch: token.end});
   }
-  
+
   insert('<></>');
   editor.focus();
   editor.setCursor({ line: cur.line, ch: token.end });
@@ -62,7 +62,7 @@ function startComplete(editor) {
     token = tprop = {start: cur.ch, end: cur.ch, string: "", state: token.state,
                      className: token.string == "." ? "js-property" : null};
   }
-  
+
   // If it is a property, find out what it is a property of.
   while (tprop.className == "js-property") {
     tprop = editor.getTokenAt({line: cur.line, ch: tprop.start});
@@ -71,9 +71,9 @@ function startComplete(editor) {
     if (!context) var context = [];
     context.push(tprop);
   }
-  
+
   if (token.string == '' && context === undefined) return;
-  
+
   var completions = getCompletions(token, context, editor);
   if (!completions.length) return;
   function insert(str) {
@@ -100,7 +100,7 @@ function startComplete(editor) {
   complete.style.outline = 'none';
   complete.className = 'autocomplete';
   document.body.appendChild(complete);
-  
+
   // Hack to hide the scrollbar.
   if (completions.length <= 10) {
     complete.style.width = (sel.clientWidth - 1) + "px";
@@ -117,12 +117,12 @@ function startComplete(editor) {
     close();
     setTimeout(function(){editor.focus();}, 50);
   }
-  
+
   function pickandclose() {
     pick()
     setTimeout(function () { editor.focus(); }, 50);
   }
-  
+
   connect(sel, "blur", close);
   connect(sel, "keydown", function(event) {
     var code = event.keyCode;
@@ -181,10 +181,10 @@ function getCompletions(token, context, editor) {
     gatherCompletions(window);
     forEach(keywords, maybeAdd);
   }
-  
+
   // also look up symbols in the current document
   var code = editor.getValue().split(/\W/);
   forEach(code, maybeAdd);
-  
+
   return found;
 }

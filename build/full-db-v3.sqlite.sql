@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `ownership` (
   `dropbox_id` INTEGER DEFAULT NULL,
   `beta` INTEGER DEFAULT NULL,
   `flagged` VARCHAR(16) DEFAULT NULL,
-  `last_seen` DATETIME DEFAULT NULL  
+  `last_seen` DATETIME DEFAULT NULL
 );
 
 /*
@@ -122,16 +122,16 @@ CREATE INDEX IF NOT EXISTS "owners_name_url" ON "owners" (`name`,`url`,`revision
 CREATE INDEX IF NOT EXISTS "owners_last_updated" ON "owners" (`name`,`last_updated`);
 CREATE INDEX IF NOT EXISTS "owners_url" ON "owners" (`url`,`revision`);
 
-CREATE INDEX IF NOT EXISTS "owner_bookmarks_name" ON "owner_bookmarks" (`name`,`type`,`created`);  
+CREATE INDEX IF NOT EXISTS "owner_bookmarks_name" ON "owner_bookmarks" (`name`,`type`,`created`);
 CREATE INDEX IF NOT EXISTS "owner_bookmarks_revision" ON "owner_bookmarks" (`url`,`revision`);
-  
-CREATE INDEX IF NOT EXISTS "forgot_tokens_expires" ON "forgot_tokens" (`expires`);  
-CREATE INDEX IF NOT EXISTS "forgot_tokens_token_expires" ON "forgot_tokens" (`token`,`created`, `expires`);  
+
+CREATE INDEX IF NOT EXISTS "forgot_tokens_expires" ON "forgot_tokens" (`expires`);
+CREATE INDEX IF NOT EXISTS "forgot_tokens_token_expires" ON "forgot_tokens" (`token`,`created`, `expires`);
 
 CREATE INDEX IF NOT EXISTS "customers_stripe_id" ON "customers" (`stripe_id`);
 CREATE INDEX IF NOT EXISTS "customers_name" ON "customers" (`name`);
 CREATE INDEX IF NOT EXISTS "customers_user_id" ON "customers" (`user_id`);
 CREATE INDEX IF NOT EXISTS "customers_expired" ON "customers" (`expiry`,`active`);
 
-CREATE INDEX IF NOT EXISTS "assets_asset_url" ON "assets" (`asset_url`);  
+CREATE INDEX IF NOT EXISTS "assets_asset_url" ON "assets" (`asset_url`);
 CREATE INDEX IF NOT EXISTS "assets_username" ON "assets" (`username`);

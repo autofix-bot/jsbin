@@ -15,7 +15,7 @@
 }(this, function () {
   'use strict';
   /*global Worker*/
-  
+
   var Sass = {
     _worker: null,
     _callbacks: {},

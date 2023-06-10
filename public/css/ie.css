@@ -17,7 +17,7 @@ div {
 
 .button-dropdown-arrow:after,
 .fake-dropdown:after {
-  content: url(/images/down-arrow.png); 
+  content: url(/images/down-arrow.png);
 }
 
 /* toppanel */

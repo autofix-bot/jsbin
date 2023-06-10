@@ -85,7 +85,7 @@ function init() {
         setTimeout(forbindReady, 20);
       }
     }, 20);
-  // }  
+  // }
 }
 
 function updateCode(msg, lang) {
@@ -100,7 +100,7 @@ function updateCode(msg, lang) {
       editors[lang].setCode(result[0]);
     } else {
       editors[lang].setCode(msg.text);
-    }    
+    }
   }
 }
 
@@ -108,10 +108,10 @@ function initForbind() {
   // set up the event handlers
   function message(event) {
     var msg = event.data;
-    
+
     updateCode(msg.javascript, 'javascript');
     updateCode(msg.html, 'html');
-    
+
     var source = getPreparedCode();
 
     if (debug) {
@@ -160,18 +160,18 @@ function initForbind() {
       if (iframe !== null) {
         document.body.removeChild(iframe);
       }
-      
+
       iframe = newiframe;
-      
+
       // document.documentElement.innerHTML = source;
       // document.open();
       //     document.write(source);
       //     document.close();
-      
+
       notice('Updated render');
     }, 250);
   }
-  
+
   forbind.on({
     join: function (event) {
       try {
@@ -187,9 +187,9 @@ function initForbind() {
     },
     message: message
   });
-  
+
   notice('Forbind ready, now joining on ' + key + '...');
-  
+
   // now attempt to join
   forbind.debug = debug;
   forbind.user(navigator.userAgent);

@@ -19,7 +19,7 @@ user will be notified as to which migration scripts they need to run.
 
 # Manual Upgrades
 
-You'll find the sql scripts in the build/upgrades directory, you'll find the scripts in 
+You'll find the sql scripts in the build/upgrades directory, you'll find the scripts in
 folders named after a version number e.g. '3.8.11'
 
 To apply these to your database run

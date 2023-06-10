@@ -266,7 +266,7 @@ window._console = {
   clear: function () {
     output.innerHTML = '';
   },
-  assert: function() { 
+  assert: function() {
     if (arguments.length === 0  || !eval(arguments[0])) {
       var msg = [];
       for(var p in arguments) {

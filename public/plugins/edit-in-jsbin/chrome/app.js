@@ -107,15 +107,15 @@ function getJSBinURL(element) {
 }
 
 // track the right click - when it happens, we capture the element that the context
-// menu was triggered from. This used to be onmousedown, but it was testing for 
-// right click via event.button === 2, but on a Mac ctrl+click === right clikc, 
+// menu was triggered from. This used to be onmousedown, but it was testing for
+// right click via event.button === 2, but on a Mac ctrl+click === right clikc,
 // yet event.button === 0. So I'm using this sucker.
 document.addEventListener("contextmenu", function(event){
   clickedEl = event.target;
 }, true);
 
 // this event is triggered from the "background" page, when the context
-// menu is opened, it asks for the code. This request requires the 
+// menu is opened, it asks for the code. This request requires the
 // clickedEl to be in place. If it isn't - it's kinda screwed!
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
   if (request === "getClickedEl" && clickedEl) {

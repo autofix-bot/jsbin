@@ -4,7 +4,7 @@ var Lightbox = function (source, effectSpeed) {
               .find('.lightbox')
               .html(source)
               .end();
-  
+
   var $nav = $('<ul id="navigation"></ul>'), $panels = $([]);
   $box.find('h2').each(function () {
     $panels = $panels.add( $(this).closest('div') );
@@ -14,9 +14,9 @@ var Lightbox = function (source, effectSpeed) {
   $panels.wrapAll('<div class="panels" />').hide();
 
   $box.find('h1').after($nav);
-  
+
   var visible = $panels.eq(0);
-  
+
   $nav.find('a').click(function () {
     var link = this;
     $nav.find('a').removeClass('selected');
@@ -34,7 +34,7 @@ var Lightbox = function (source, effectSpeed) {
 Lightbox.prototype.show = function () {
   var lightbox = this;
   lightbox.$box.appendTo(document.body).fadeIn(lightbox.speed);
-  
+
   // in case we have navigation that needs to be clicked
   lightbox.$box.find('#navigation a:first').click();
 
@@ -44,7 +44,7 @@ Lightbox.prototype.show = function () {
       $(document).unbind('keyup', escape);
     }
   };
-  
+
   $(document).keyup(escape);
   lightbox.$box.find('.overlay').click(escape);
 };

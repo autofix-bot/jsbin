@@ -47,7 +47,7 @@ function runTests(callback) {
     if (i === tests.length){
       running = false;
       return callback("done");
-    } 
+    }
     var test = tests[i], expFail = test.expectedFail, startTime = +new Date;
     if (filters.length) {
       for (var j = 0; j < filters.length; j++) {
@@ -55,7 +55,7 @@ function runTests(callback) {
           break;
         }
       }
-      if (j == filters.length) {      
+      if (j == filters.length) {
         callback("skipped", test.name, message);
         return step(i + 1);
       }

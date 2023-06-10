@@ -7,7 +7,7 @@
     $ npm install -g jsbin
     $ jsbin
 ```
-    
+
 **Note:** You may have to run npm as the super user, so in that case, the first command would be:
 
     $ sudo npm install -g jsbin

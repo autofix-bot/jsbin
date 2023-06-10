@@ -4,8 +4,8 @@ var clickedEl = null,
     innerText = document.createElement('i').innerText === undefined ? 'textContent' : 'innerText';
 
 // track the right click - when it happens, we capture the element that the context
-// menu was triggered from. This used to be onmousedown, but it was testing for 
-// right click via event.button === 2, but on a Mac ctrl+click == right clikc, 
+// menu was triggered from. This used to be onmousedown, but it was testing for
+// right click via event.button === 2, but on a Mac ctrl+click == right clikc,
 // yet event.button === 0. So I'm using this sucker.
 document.addEventListener('contextmenu', function(event){
   clickedEl = event.target;

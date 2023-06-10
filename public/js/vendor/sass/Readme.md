@@ -57,13 +57,13 @@ Sass.compile(text);
 // set compile style options
 Sass.options({
   // format output: nested, expanded, compact, compressed
-  style: Sass.style.nested, 
+  style: Sass.style.nested,
   // add line comments to output: none, default
   comments: Sass.comments.none
 });
 // register a file to be available for @import
 Sass.writeFile(filename, text);
-// remove a file 
+// remove a file
 Sass.removeFile(filename);
 // get a file's content
 Sass.readFile(filename);

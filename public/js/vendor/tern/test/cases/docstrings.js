@@ -34,7 +34,7 @@ function Quux() {}
 
 Quux; //doc: Quux is a thing.
 
-/*  Extra bogus 
+/*  Extra bogus
  *  	whitespace is also stripped.
  */
 var baz = "hi";

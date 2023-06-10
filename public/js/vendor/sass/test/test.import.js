@@ -26,7 +26,7 @@ describe('@import', function() {
 
     done();
   });
-  
+
   it('should resolve nested imports', function(done) {
     var source = '@import "some-dir/testfile";';
     var expected = '.imported {\n  content: "bar"; }\n\n.imported {\n  content: "testfile"; }\n';

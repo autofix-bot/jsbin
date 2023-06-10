@@ -16,11 +16,11 @@ code { font-family: Monaco, 'Courier New'; }
 </head>
 <body>
   <h1>Hacker tips</h1>
-  
+
   <h2>Adding your own custom libraries</h2>
   <p>JS Bin comes with out of the box support for a number of libraries, but if you're comfortable on the command line, you can add your own (I plan to add the UI to do this eventually if it's a useful function).</p>
   <p>The format for a new library entry is as follows:</p>
-  <pre><code>{ 
+  <pre><code>{
 text: 'My Category',
 requires: 'http://someotherlibary.com/lib.js', <span style="color: green;">// optional</span>
 style: 'http://someotherlibary.com/style.css', <span style="color: green;">// optional</span>
@@ -33,7 +33,7 @@ scripts: [
   <p>To add this library, open your console, and run the following (changing the library for your own):</p>
   <pre><code>libraries.add({ text: 'My Libraries', scripts: [ { text: 'Foo 1.0', url: 'http://foo.com/bar-1.0.js' } ] });</code></pre>
   <p>These changes will save to your browser (on those browsers that support the Storage API - all the latest versions of browsers), and will remain until you call <code>libraries.clear()</code></p>
-  
+
   <h2>Create your own bespoke url namespace</h2>
   <p>You can trick JS Bin in to thinking the bin has already been created by accessing the url directly, such as <a href="http://jsbin.com/foo/edit">http://jsbin.com/foo/edit</a>.  At this point the code isn't saved and technically you've hit a non existent namespace. Once you hit 'new revision', it save a new revision. At that point the code is saved, and successive revisions will be saved (i.e. revision 2 and onwards).</p>
 </body>

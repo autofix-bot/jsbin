@@ -2353,7 +2353,7 @@ Comment.prototype.type = 'Comment';
 var Node = _dereq_('./node');
 
 /**
- * Initialize a `Doctype` with the given `val`. 
+ * Initialize a `Doctype` with the given `val`.
  *
  * @param {String} val
  * @api public

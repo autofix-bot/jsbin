@@ -1,6 +1,6 @@
 Hey,
 
-Somebody went and reported a bin as being a bit dodgy. It was this one: 
+Somebody went and reported a bin as being a bit dodgy. It was this one:
 
 {{url}}
 

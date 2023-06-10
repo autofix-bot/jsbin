@@ -29,7 +29,7 @@
  background: none !important;
  }
 
-/*panel backgrounds*/  
+/*panel backgrounds*/
 .panel {
  background: rgb(247, 247, 247);
  background: rgb(247, 247, 247);
@@ -54,7 +54,7 @@
 
 /* panel menus */
 .label.menu span strong a {
- color: rgb(0, 170, 255);		
+ color: rgb(0, 170, 255);
  color: hsla(200, 100%, 50%, 1);
  font-weight: normal;
  }
@@ -70,7 +70,7 @@
 #accountBtn img {
   margin-top: -4px;
 }
- 
+
 .open .avatar img,
 .avatar:hover img {
   -webkit-filter: brightness(125%) saturate(125%);

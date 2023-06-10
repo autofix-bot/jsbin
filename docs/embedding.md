@@ -1,6 +1,6 @@
 # Embed
 
-User includes `http://jsbin.com/js/embed.js` in their code - probably in the footer - it runs one doc ready. As a user I have a few options: 
+User includes `http://jsbin.com/js/embed.js` in their code - probably in the footer - it runs one doc ready. As a user I have a few options:
 
 1. full embed - pulls an existing jsbin directly in to my site (though url can prefine which panels to show)
 2. mixed embed - mixes existing content in my site with a predefined jsbin - enabling me to template code

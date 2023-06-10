@@ -40,7 +40,7 @@ function checkFile(fileName) {
     var info = acorn.getLineInfo(file, notAllowed.index);
     fail(msg + " at line " + info.line + ", column " + info.column, {source: fileName});
   }
-  
+
   var globalsSeen = Object.create(null);
 
   try {

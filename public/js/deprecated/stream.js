@@ -32,9 +32,9 @@ forbindPromise.done(function (global) {
   function changes(lang, code) {
     var msg = {},
         diff,
-        patch, 
+        patch,
         result;
-      
+
     if (last[lang] === undefined) {
       msg.text = code;
       msg.diff = false;
@@ -44,7 +44,7 @@ forbindPromise.done(function (global) {
       patch = diff.patch_make(last[lang], code);
       // 2. apply patch to old javascript
       result = diff.patch_apply(patch, last[lang]);
-    
+
       // 3. if it matches, then send diff
       if (result[0] == code) {
         msg.text = diff.patch_toText(patch);
@@ -55,9 +55,9 @@ forbindPromise.done(function (global) {
         msg.diff = false;
       }
     }
-  
+
     last[lang] = code;
-  
+
     return msg;
   }
 
@@ -67,7 +67,7 @@ forbindPromise.done(function (global) {
         changed = false,
         cursor,
         msg = {};
-  
+
     msg.javascript = changes('javascript', javascript);
     msg.html = changes('html', html);
 
@@ -78,7 +78,7 @@ forbindPromise.done(function (global) {
 
       msg.line = cursor.line;
       msg.ch = cursor.ch;
-        
+
       forbind.send(msg);
     }
   }
@@ -90,7 +90,7 @@ forbindPromise.done(function (global) {
           $body.addClass('streaming').removeClass('pausestream');
           streaming = true;
 
-          if (event.isme && event.readonlykey) {            
+          if (event.isme && event.readonlykey) {
             owner = true;
             sessionStorage.setItem('streamwritekey', event.readonlykey);
             sessionStorage.setItem('streamkey', key);
@@ -110,13 +110,13 @@ forbindPromise.done(function (global) {
           if (event.isme) {
             if (!owner) {
               $body.addClass('pausestream');
-              streaming = false;  
+              streaming = false;
 
               $stream.one('click', function () {
                 window.location.search.replace(/stream=(.+?)\b/, function (n, key) {
                   global.stream.join(key);
                 });
-              });        
+              });
             } else {
               $body.removeClass('streaming');
               owner = false;
@@ -153,7 +153,7 @@ forbindPromise.done(function (global) {
 
   function updateCode(msg, lang) {
     var diff, patch, result, code;
-  
+
     if (msg.text) {
       if (msg.diff) {
         diff = new diff_match_patch();
@@ -163,7 +163,7 @@ forbindPromise.done(function (global) {
         editors[lang].setCode(result[0]);
       } else {
         editors[lang].setCode(msg.text);
-      }    
+      }
     }
   }
 
@@ -178,21 +178,21 @@ forbindPromise.done(function (global) {
     create: function () {
       initForbindForCodeCasting();
       key = (Math.abs(~~(Math.random()*+new Date))).toString(32); // OTT?
-        
+
       forbind.create(key);
-    
+
       return key;
     },
     join: function (key) {
       initForbindForCodeCasting();
       forbind.join(key);
-    
+
       owner = false;
       sessionStorage.removeItem('streamkey');
       sessionStorage.removeItem('streamwritekey');
-    
+
       $stream.addClass('listen');
-    
+
       $(document).one('keyup', function (event) {
         if (streaming && event.which == 27) {
           global.stream.leave();
@@ -209,12 +209,12 @@ forbindPromise.done(function (global) {
             if (event.which == 27) {
               global.stream.leave();
             }
-          });        
+          });
         } catch (e) {
           // because it sometimes throw an error on reconnecting trying to read win.document
         }
       }
-    
+
       $stream.find('.msg').html('following live stream...');
     },
     leave: function () {

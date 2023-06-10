@@ -105,8 +105,8 @@ And that's it.
 
 
 ## End-to-end tests
-JS Bin has end-to-end tests. The tests can be found in `tests/e2e` folder. 
+JS Bin has end-to-end tests. The tests can be found in `tests/e2e` folder.
 
-Running the tests (JS Bin has to be running on port http://localhost:3000): 
+Running the tests (JS Bin has to be running on port http://localhost:3000):
 
     $ npm run e2e

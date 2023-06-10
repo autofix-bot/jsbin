@@ -46,7 +46,7 @@ function checkFile(fileName) {
 
   if (!cBlob.test(file))
     fail("Missing license blob", {source: fileName});
-  
+
   var globalsSeen = Object.create(null);
 
   try {
